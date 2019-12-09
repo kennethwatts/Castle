@@ -32,14 +32,9 @@
             this.textBoxSiteMapOld = new System.Windows.Forms.TextBox();
             this.buttonBrowseSiteMapOld = new System.Windows.Forms.Button();
             this.buttonBrowseOutputPath = new System.Windows.Forms.Button();
-
-            //for new  button
             this.labelSiteMapNew = new System.Windows.Forms.Label();
             this.textBoxSiteMapNew = new System.Windows.Forms.TextBox();
             this.buttonBrowseSiteMapNew = new System.Windows.Forms.Button();
-           
-
-
             this.textBoxOutputPath = new System.Windows.Forms.TextBox();
             this.labelOutputPath = new System.Windows.Forms.Label();
             this.buttonGo = new System.Windows.Forms.Button();
@@ -47,27 +42,27 @@
             this.fbdOutput = new System.Windows.Forms.FolderBrowserDialog();
             this.SuspendLayout();
             // 
-            // labelDataContract
+            // labelSiteMapOld
             // 
             this.labelSiteMapOld.AutoSize = true;
             this.labelSiteMapOld.Location = new System.Drawing.Point(3, 13);
-            this.labelSiteMapOld.Name = "labelOldFile";
-            this.labelSiteMapOld.Size = new System.Drawing.Size(73, 13);
+            this.labelSiteMapOld.Name = "labelSiteMapOld";
+            this.labelSiteMapOld.Size = new System.Drawing.Size(42, 13);
             this.labelSiteMapOld.TabIndex = 0;
             this.labelSiteMapOld.Text = "Old File";
             // 
-            // textBoxDataContract
+            // textBoxSiteMapOld
             // 
             this.textBoxSiteMapOld.Location = new System.Drawing.Point(82, 10);
-            this.textBoxSiteMapOld.Name = "textBoxOldFile";
+            this.textBoxSiteMapOld.Name = "textBoxSiteMapOld";
             this.textBoxSiteMapOld.Size = new System.Drawing.Size(348, 20);
             this.textBoxSiteMapOld.TabIndex = 1;
             this.textBoxSiteMapOld.Text = ".\\SiteMapFiles\\XtxGetXphaStudent.cs";
             // 
-            // buttonBrowseDataContract
+            // buttonBrowseSiteMapOld
             // 
             this.buttonBrowseSiteMapOld.Location = new System.Drawing.Point(436, 10);
-            this.buttonBrowseSiteMapOld.Name = "buttonBrowseOldFile";
+            this.buttonBrowseSiteMapOld.Name = "buttonBrowseSiteMapOld";
             this.buttonBrowseSiteMapOld.Size = new System.Drawing.Size(75, 23);
             this.buttonBrowseSiteMapOld.TabIndex = 2;
             this.buttonBrowseSiteMapOld.Text = "Browse...";
@@ -83,39 +78,33 @@
             this.buttonBrowseOutputPath.Text = "Browse...";
             this.buttonBrowseOutputPath.UseVisualStyleBackColor = true;
             this.buttonBrowseOutputPath.Click += new System.EventHandler(this.buttonBrowseOutputPath_Click);
-
-
-            // labelDataContract for new button
+            // 
+            // labelSiteMapNew
             // 
             this.labelSiteMapNew.AutoSize = true;
             this.labelSiteMapNew.Location = new System.Drawing.Point(3, 36);
-            this.labelSiteMapNew.Name = "labelNewFile";
-            this.labelSiteMapNew.Size = new System.Drawing.Size(73, 13);
+            this.labelSiteMapNew.Name = "labelSiteMapNew";
+            this.labelSiteMapNew.Size = new System.Drawing.Size(48, 13);
             this.labelSiteMapNew.TabIndex = 3;
             this.labelSiteMapNew.Text = "New File";
             // 
-            // textBoxDataContractOld
+            // textBoxSiteMapNew
             // 
             this.textBoxSiteMapNew.Location = new System.Drawing.Point(82, 36);
-            this.textBoxSiteMapNew.Name = "textBoxNewFile";
+            this.textBoxSiteMapNew.Name = "textBoxSiteMapNew";
             this.textBoxSiteMapNew.Size = new System.Drawing.Size(348, 20);
             this.textBoxSiteMapNew.TabIndex = 4;
             this.textBoxSiteMapNew.Text = ".\\SiteMapFiles\\XtxGetXphaStudent.cs";
             // 
-            // buttonBrowseDataContractOld
+            // buttonBrowseSiteMapNew
             // 
             this.buttonBrowseSiteMapNew.Location = new System.Drawing.Point(436, 36);
-            this.buttonBrowseSiteMapNew.Name = "buttonBrowseNewFile";
+            this.buttonBrowseSiteMapNew.Name = "buttonBrowseSiteMapNew";
             this.buttonBrowseSiteMapNew.Size = new System.Drawing.Size(75, 23);
             this.buttonBrowseSiteMapNew.TabIndex = 5;
             this.buttonBrowseSiteMapNew.Text = "Browse...";
             this.buttonBrowseSiteMapNew.UseVisualStyleBackColor = true;
             this.buttonBrowseSiteMapNew.Click += new System.EventHandler(this.buttonBrowseSiteMapNew_Click);
-          
-
-
-
-
             // 
             // textBoxOutputPath
             // 
@@ -124,13 +113,14 @@
             this.textBoxOutputPath.Size = new System.Drawing.Size(348, 20);
             this.textBoxOutputPath.TabIndex = 8;
             this.textBoxOutputPath.Text = ".\\Output";
+            this.textBoxOutputPath.TextChanged += new System.EventHandler(this.textBoxOutputPath_TextChanged);
             // 
             // labelOutputPath
             // 
             this.labelOutputPath.AutoSize = true;
             this.labelOutputPath.Location = new System.Drawing.Point(3, 60);
             this.labelOutputPath.Name = "labelOutputPath";
-            this.labelOutputPath.Size = new System.Drawing.Size(63, 13);
+            this.labelOutputPath.Size = new System.Drawing.Size(64, 13);
             this.labelOutputPath.TabIndex = 9;
             this.labelOutputPath.Text = "Output Path";
             // 
@@ -144,7 +134,7 @@
             this.buttonGo.UseVisualStyleBackColor = true;
             this.buttonGo.Click += new System.EventHandler(this.buttonGo_Click);
             // 
-            // ofdDataContract
+            // ofdSiteMapUpdater
             // 
             this.ofdSiteMapUpdater.FileName = "SiteMapUpdater.cs";
             // 
@@ -163,9 +153,6 @@
             this.Controls.Add(this.buttonBrowseSiteMapNew);
             this.Controls.Add(this.textBoxSiteMapNew);
             this.Controls.Add(this.labelSiteMapNew);
-           
-
-
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "FormMain";

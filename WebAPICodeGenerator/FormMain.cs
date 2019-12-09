@@ -20,6 +20,7 @@ namespace WebAPICodeGenerator
 
         public static string GetFileAsString(string strFilename)
         {
+          
             string strFileContents;
 
             // create reader & open file
@@ -70,6 +71,12 @@ namespace WebAPICodeGenerator
             // Determine the transaction name based on the filename...
             string strTransactionName = Path.GetFileNameWithoutExtension(textBoxDataContract.Text);
 
+             //path for the output
+             string pathOfOutput= textBoxDataContract.Text.Substring(0, textBoxDataContract.Text.IndexOf("Api") + 4);
+             //System.Diagnostics.Debug.WriteLine(pathOfOutput);
+
+            
+
             // Generate "Record" file...
             string strRecordFileName = strTransactionName + "Record";
             // Load transaction record template...
@@ -86,8 +93,7 @@ namespace WebAPICodeGenerator
             strData.Append(comment);
             strData.Append(strTransactionProperties);
 
-            //strMethods = strReqPropertiesParsed.Substring(strReqPropertiesParsed.IndexOf("]") + 1, strReqPropertiesParsed.IndexOf("}") + 1);
-            //Console.WriteLine(strMethods);
+       
        
             while (strTransactionPropertiesParsed.Contains("[SctrqDataMember("))
             {
@@ -319,35 +325,48 @@ namespace WebAPICodeGenerator
             strColleagueApiClientOutput = strColleagueApiClientOutput.Replace("{lower-case-get/update-transaction}", lowerCaseTransactionName);
 
 
+            string pathForController=pathOfOutput+ "Ellucian.Colleague.Api\\Controllers\\Student";
+            string pathForAdapter=pathOfOutput+ "Ellucian.Colleague.Coordination.Student\\Adapters";
+            string pathForDTO=pathOfOutput+ "Ellucian.Colleague.Dtos.Student";
+            string pathForRecord=pathOfOutput+ "Ellucian.Colleague.Domain.Student\\Entities";
+            string pathForRepository=pathOfOutput+ "Ellucian.Colleague.Data.Student\\Repositories";
+            string pathForIRepository=pathOfOutput+ "Ellucian.Colleague.Domain.Student\\Repositories";
+
+
+           // System.Diagnostics.Debug.WriteLine(pathForController);
+          
+
+
+
             //it's a get file
             if (getCounter >= updateCounter)
             {
-                WriteStringToFile(textBoxOutputPath.Text + "\\" + strRecordFileName + ".cs", strTransactionRecordOutput);
+                WriteStringToFile(pathForRecord + "\\" + strRecordFileName + ".cs", strTransactionRecordOutput);
                 //Generate Controller output
-                WriteStringToFile(textBoxOutputPath.Text + "\\" + strControllerFileName + ".cs", strTransactionControllerOutput);
+                WriteStringToFile(pathForController + "\\" + strControllerFileName + ".cs", strTransactionControllerOutput);
                 //Generate Adapter output
-                WriteStringToFile(textBoxOutputPath.Text + "\\" + strRepositoryFileName + ".cs", strGetTransactionReposOutput);
+                WriteStringToFile(pathForRepository + "\\" + strRepositoryFileName + ".cs", strGetTransactionReposOutput);
                 //Generate Respository interface output
-                WriteStringToFile(textBoxOutputPath.Text + "\\" + strInterfaceRepositoryFileName + ".cs", strTransactionInterfaceReposOutput);
+                WriteStringToFile(pathForIRepository + "\\" + strInterfaceRepositoryFileName + ".cs", strTransactionInterfaceReposOutput);
                 //Generate Adapter output
-                WriteStringToFile(textBoxOutputPath.Text + "\\" + strAdapterFileName + ".cs", strTransactionAdapterOutput);
+                WriteStringToFile(pathForAdapter + "\\" + strAdapterFileName + ".cs", strTransactionAdapterOutput);
                 //Generate DTO output
-                WriteStringToFile(textBoxOutputPath.Text + "\\" + strDtofileName + ".cs", strTransactionDtoOutput);
+                WriteStringToFile(pathForDTO + "\\" + strDtofileName + ".cs", strTransactionDtoOutput);
                 //Generate Colleague Api Client
                 WriteStringToFile(textBoxOutputPath.Text + "\\" + strColleagueApiClientFileName + ".cs", strColleagueApiClientOutput);
             }
             else { 
                 //update record file
-                WriteStringToFile(textBoxOutputPath.Text + "\\" + strRecordFileName + ".cs", strTransactionRecordOutput);
+                WriteStringToFile(pathForRecord + "\\" + strRecordFileName + ".cs", strTransactionRecordOutput);
                   //Generate Respository interface output
-                WriteStringToFile(textBoxOutputPath.Text + "\\" + strInterfaceRepositoryFileName + ".cs", strUpdateTransactionInterfaceReposOutput);
+                WriteStringToFile(pathForIRepository + "\\" + strInterfaceRepositoryFileName + ".cs", strUpdateTransactionInterfaceReposOutput);
                 //update repos
-                WriteStringToFile(textBoxOutputPath.Text + "\\" + strRepositoryFileName + ".cs", strUpdateTransactionReposOutput );
+                WriteStringToFile(pathForRepository + "\\" + strRepositoryFileName + ".cs", strUpdateTransactionReposOutput );
                 //Generate Controller output
-                WriteStringToFile(textBoxOutputPath.Text + "\\" + strControllerFileName + ".cs", strUpdateTransactionControllerOutput);
+                WriteStringToFile(pathForController + "\\" + strControllerFileName + ".cs", strUpdateTransactionControllerOutput);
 
                 //Generate Adapter output
-                WriteStringToFile(textBoxOutputPath.Text + "\\" + strAdapterFileName + ".cs", strTransactionAdapterOutput);
+                WriteStringToFile(pathForAdapter + "\\" + strAdapterFileName + ".cs", strTransactionAdapterOutput);
 
 
             }

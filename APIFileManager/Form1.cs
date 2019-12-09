@@ -150,6 +150,8 @@ namespace APIFileMerger
                 string strNewUnModFile = GetFileAsString(newUnModfiles[i]);
                 string textOutPutPath = newUnModfiles[i];
 
+                Console.WriteLine(textOutPutPath);
+
                 string strOldModFileParsed = strOldModFile.Substring(strOldModFile.IndexOf("<PropertyGroup>"));
                 string strOldUnModFileParsed = strOldUnModFile.Substring(strOldUnModFile.IndexOf("<PropertyGroup>"));
                 string newNewModFile = strNewUnModFile.Substring(0, strNewUnModFile.IndexOf("2003\">") + 7);

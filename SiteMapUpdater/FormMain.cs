@@ -326,6 +326,11 @@ namespace SiteMapUpdater
         {
 
         }
+
+        private void textBoxOutputPath_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 
     public class SiteMapElement
